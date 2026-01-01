@@ -37,7 +37,10 @@ for item in data:
 
         break
 
-    item["model_output"] = answer
+    if answer is None:
+        item["model_output"] = ""
+    else:
+        item["model_output"] = answer
 
 out_path = f"mmau-gpt4o-output.json"
 with open(out_path, "w", encoding="utf-8") as f:
